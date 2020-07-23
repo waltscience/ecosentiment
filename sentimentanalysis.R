@@ -41,7 +41,7 @@ for (i in 1:ncol(dat)) {                                                 # loop 
   sentdata <- rbind(sentdata, words)
 }
 write.csv(sentdata, "sentdata.csv", row.names = FALSE)
-sentdata <- read.csv("sentdata.csv", header = TRUE)
+sentimentdata <- read.csv("sentdata.csv", header = TRUE)
 
 # Note on data flow - I learned R in Base R, before tidyverse existed. I understand this workflow could be 
 # much more efficient. I am currently working to learn tidyverse to make my data processing more efficient.
