@@ -42,17 +42,7 @@ for (i in 1:ncol(dat)) {                                                 # loop 
 }
 write.csv(sentdata, "sentdata.csv", row.names = FALSE)
 sentdata <- read.csv("sentdata.csv", header = TRUE)
+
 # Note on data flow - I learned R in Base R, before tidyverse existed. I understand this workflow could be 
 # much more efficient. I am currently working to learn tidyverse to make my data processing more efficient.
-sentdata$Year <- as.Date(paste(sentdata$Year, 1, 1, sep = "-"))
-s <- ggplot(subset(sentdata, Type %in% "disc"), aes(x = Year, y = Sentiment, colour = factor(Type))) +
-  geom_point(size = 2, alpha = 0.8) +
-  scale_color_manual(values = c("grey38", "firebrick 3")) +
-  scale_x_date(date_labels = "%Y")
-  geom_abline(size = 1.5, intercept = p0[1], slope = p0[2], color = "grey38") +
-  geom_abline(size = 1.5, intercept = p1[1], slope = p1[2], color = "firebrick 3") +
-  scale_color_manual(values = c("grey38", "firebrick 3"),
-                     labels= c("Ambient P","P fertilized"),
-                     name="P level") +
-  labs(y = expression(ln ~ (Aboveground ~ net ~ primary ~ productivity ~ g ~ m^{-2})), x = "Aridity index")
-s + theme_few()
+
