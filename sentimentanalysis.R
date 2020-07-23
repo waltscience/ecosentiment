@@ -18,7 +18,7 @@
 packages <- c("readr", "tidytext", "textdata", "dplyr", "tidyr", "ggplot2") # packages to load
 lapply(packages, library, character.only = TRUE)                         # load packages
 afinn <- as.data.frame(get_sentiments(lexicon = "afinn"))                # load sentiment dictionary
-dat <- read.csv("threads.csv", header = TRUE)                    # load data
+dat <- as.data.frame(read_csv(url("https://raw.githubusercontent.com/waltscience/ecosentiment/master/threads.csv"))) # load data
 sentdata <- data.frame(                                                  # initialize the final data frame
                       "Thread"    = as.numeric(),
                       "Sentiment" = as.numeric(),
